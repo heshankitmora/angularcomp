@@ -1,0 +1,46 @@
+<div class="row row-header-line">
+  <div class="col-md-3 col-sm-3 v-align logo-wrapper">
+    <a class="logo-header">
+      <img src="../../../assets/logo.png"/>
+    </a>
+  </div>
+  <div class="col-md-9 col-sm-9 col-tasks-line">
+    <div class="row">
+      <div class="col-md-5 col-sm-5">
+        <h1 class="main-title">
+          {{ titleMessage }}
+        </h1>
+      </div>
+      <div class="col-md-7 col-sm-7 col-profile-buttons">
+        <div class="row row-profile">
+          <div class="col-md-4 col-sm-4">
+            <app-addtask *ngIf="titleAttr=='tasks'" ></app-addtask>
+            <app-addincident *ngIf="titleAttr=='incident'" ></app-addincident>
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <a class="btn btn-tr btn-template">
+              <i class="fas fa-copy"></i>
+              New Template
+            </a>
+          </div>
+          <div class="col-md-4 col-sm-4">
+            <div class="profile-wrapper">
+              <p>
+                <span>
+                  Hello
+                </span>
+                <span class="user-name">
+                                            Johnson!
+                                        </span>
+              </p>
+              <img src="../../../assets/profile.png"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

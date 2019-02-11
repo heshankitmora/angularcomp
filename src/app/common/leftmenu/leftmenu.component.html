@@ -1,0 +1,41 @@
+<ul class="left-menu-ul">
+  <li [routerLinkActive]="['active']">
+    <a [routerLink]="['/dashboard']">
+      <i class="fa fa-dashboard"></i>
+      Dashboard
+    </a>
+  </li>
+  <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="[{exact: true}]">
+    <a [routerLink]="['/tasks']">
+      <i class="fa fa-check-square-o"></i>
+      Tasks
+    </a>
+  </li>
+  <li class="main-li">
+    <a>Complience</a>
+  </li>
+  <li>
+    <a>
+      <i class="fa fa-exclamation-triangle"></i>
+      Risks
+    </a>
+  </li>
+  <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="[{exact: true}]">
+    <a [routerLink]="['/incidents']">
+      <i class="	fa fa-line-chart"></i>
+      Incidents
+    </a>
+  </li>
+  <li>
+    <a>
+      <i class="fas fa-dollar-sign"></i>
+      Audits
+    </a>
+  </li>
+  <li class="main-li">
+    <a>Projects</a>
+  </li>
+  <li class="empty">
+    <app-viewprojectleft></app-viewprojectleft>
+  </li>
+</ul>

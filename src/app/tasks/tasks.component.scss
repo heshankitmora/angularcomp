@@ -1,0 +1,196 @@
+@import "../../styles";
+
+section{
+  position: relative;
+  height: 120px;
+
+  &:not(:first-child){
+    margin-top: $standard-padding * 2;
+  }
+
+  &.section-filtering{
+    z-index: 10;
+    h2{
+      font-size: $standard-font-size * 1.5;
+      margin-top: 0;
+      margin-left: 0;
+      padding-left: 0;
+    }
+    >.row{
+      height: 100%;
+      display: flex;
+      margin-left:10px;
+      margin-right: 10px;
+      >div{
+        height: 100%;
+        display: block;
+        >img{
+          margin-left: -$standard-padding/1.5;
+          margin-top: -$standard-padding * 2;
+          display: block;
+          height: 100px;
+          border-top-left-radius: 2px;
+          border-bottom-left-radius: 2px;
+        }
+      }
+    }
+    .filter-section{
+      >.row{
+        display: flex;
+        .select-box{
+          display: flex;
+          margin-right: $standard-padding;
+          height: 50px;
+          label{
+            width: auto;
+            margin-top:auto;
+            margin-bottom: auto;
+          }
+          select{
+            width: auto;
+            margin-top:auto;
+            margin-bottom: auto;
+            background: transparent;
+          }
+
+          &.sel-date-box{
+            z-index: 1000;
+            min-width: 220px;
+            .sel-box-date{
+              display: block;
+              min-width: 150px;
+              my-date-picker{
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+    .dv-refresh{
+      margin-left: $standard-padding * 2;
+      padding-top: 0;
+      a{
+        border:1px solid $border-color;
+        padding:$standard-padding;
+        border-radius:50%;
+        width: 50px;
+        display: block;
+        text-align: center;
+        height: 50px;
+        box-sizing: border-box;
+        cursor: pointer;
+        color:$black;
+      }
+    }
+
+    .dv-search{
+      padding-top:0;
+      .btn-tr.btn-search{
+        height: 50px;
+        display: block;
+        color:$orange !important;
+        background: transparent;
+        border:1px solid $orange;
+        text-decoration: none;
+        border-radius:50px;
+        font-size:1rem;
+        line-height: 24px;
+        &:hover{
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  &.section-list-tasks{
+    overflow-y: hidden;
+    height: calc(100vh - 180px);
+    position: relative;
+    cdk-virtual-scroll-viewport{
+      height: 100%;
+    }
+    h3{
+      margin-top: $standard-padding;
+    }
+    ul{
+      padding-left: 0;
+      list-style-type: none;
+      height: 100%;
+      li{
+        padding: $standard-padding;
+        &:not(:last-child){
+          border-bottom:1px solid $border-color;
+        }
+        .row{
+          display: flex;
+          align-items: center;
+          >div{
+            padding-top: 0;
+            padding-bottom: 0;
+            height: 100%;
+
+            h3{
+              display: flex;
+              align-items: center;
+              font-size: $standard-font-size * 1.5;
+              i{
+                font-size: $standard-font-size;
+                display: inline-block;
+                padding-right: $standard-padding;
+                color: $orange;
+              }
+            }
+
+            p{
+              color:$text-grey;
+            }
+          }
+        }
+
+        .task-action-section{
+          display: flex;
+          align-items: center;
+          width: 100%;
+          .btn-round{
+            font-size: $standard-font-size * 1.2;
+            border:1px solid $border-color;
+            padding:$standard-padding;
+            border-radius:50%;
+            width: 40px;
+            line-height: 14px;
+            display: block;
+            text-align: center;
+            height: 40px;
+            box-sizing: border-box;
+            text-align: center;
+            cursor: pointer;
+            color:$black;
+            margin-left: $standard-padding/2;
+            margin-right: $standard-padding/2;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.dropdown-tasks{
+  .dropdown-menu.show{
+    left:-100px !important;
+  }
+}
+
+.modal-task-del-wrapper{
+  width: 100%;
+  text-align: center;
+  a:last-child{
+    margin-left: 10px;
+    background: $red;
+  }
+}
+
+
+
+

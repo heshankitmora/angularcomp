@@ -1,0 +1,112 @@
+<!---------------------Main Content-Start-Incident------------------------------------->
+<section class="section-filtering">
+  <div class="row">
+    <div class="col-md-12 col-sm-12">
+      <h2>
+        Search Previous Incidents
+      </h2>
+      <div class="filter-section">
+        <div class="row">
+          <div class="select-box">
+            <label>
+              Status:
+            </label>
+            <select [(ngModel)]="incidentStatus">
+              <option selected value="">
+                All
+              </option>
+              <option value="Completed">
+                Completed
+              </option>
+              <option value="Overdue">
+                Overdue
+              </option>
+            </select>
+          </div>
+          <div class="select-box sel-date-box">
+            <label>
+              From:
+            </label>
+            <div class="sel-box-date">
+              <my-date-picker name="startDate" [(ngModel)]="startDate" (dateChanged)="onStartDateChanged($event)"  required></my-date-picker>
+            </div>
+          </div>
+          <div class="select-box sel-date-box">
+            <label>
+              To:
+            </label>
+            <div class="sel-box-date">
+              <my-date-picker name="endDate" [(ngModel)]="endDate" (dateChanged)="onEndDateChanged($event)"  required></my-date-picker>
+            </div>
+          </div>
+          <div class="dv-refresh">
+            <a class="btn-round" (click)="resetFilterClick($event)">
+              <i class="fa fa-refresh"></i>
+            </a>
+          </div>
+          <div class="dv-search">
+            <a class="btn-tr btn-search" (click)="incidentFilterClick($event)">
+              Search
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section-list-tasks">
+  <cdk-virtual-scroll-viewport itemSize="8" autosize>
+    <ul cdkVirtualScrollContent>
+      <li *cdkVirtualFor="let incident of incidentList | paginate: { itemsPerPage: 4, currentPage: p }">
+        <div class="row">
+          <div class="col-md-9 col-sm-9">
+            <h3>
+              <i class="fa fa-dot-circle-o"></i>
+              {{ incident.title }}
+            </h3>
+            <p>
+              {{ incident.description }}
+            </p>
+          </div>
+          <div class="col-md-3 col-sm-3">
+            <div class="task-action-section">
+              <a class="btn-round">
+                <i class="fa fa-comment-o"></i>
+              </a>
+              <a class="btn-round">
+                <i class="fa fa-user-plus"></i>
+              </a>
+              <a class="btn-round">
+                <i class="fa fa-paperclip"></i>
+              </a>
+
+              <div ngbDropdown class="d-inline-block dropdown-tasks">
+                <a class="btn-round" id="dropdownBasic1" ngbDropdownToggle>
+                  <i class="fa fa-ellipsis-h"></i>
+                </a>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button (click)="deleteIncident(incident.id, incident.title)" class="dropdown-item">Delete</button>
+                  <button class="dropdown-item">Edit Task</button>
+                  <button class="dropdown-item">Sub Tasks</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </cdk-virtual-scroll-viewport>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+  <modal #modalDeleteIncident class="modal-incident-delete">
+    <ng-template #modalHeader><h2>Do you want to Delete "{{ incidentCommentDelTitle }}" ? </h2></ng-template>
+    <ng-template #modalBody>
+      <div class="modal-task-incident-wrapper">
+        <a (click)="cancelDeleteConfirm()" class="btn-primary">Cancel</a><a class="btn-primary btn-delete" (click)="deleteIncidentConfirm()">Delete</a>
+      </div>
+    </ng-template>
+    <ng-template #modalFooter></ng-template>
+  </modal>
+</section>
+<!---------------------Main Content-End-Incident--------------------------------------->

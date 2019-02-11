@@ -1,0 +1,58 @@
+<div class="task-comments-wrapper">
+  <div class="task-comment-new">
+    <form name="form" (ngSubmit)="f.form.valid && onCommentSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <p>
+          You are commenting as <b>{{ loggedUserName }}</b>
+        </p>
+        <textarea class="form-control" name="taskComment" required="required" [(ngModel)]="taskCommentVal" #taskComment="ngModel"></textarea>
+        <div *ngIf="taskComment.invalid && (taskComment.dirty || taskComment.touched)"
+             class="alert alert-danger">
+          <div *ngIf="taskComment.errors.required">
+            Name is required.
+          </div>
+        </div>
+      </div>
+      <div class="form-group submit-class-comment">
+        <input type="submit" value="Post"/>
+      </div>
+    </form>
+  </div>
+  <div class="task-last-comments">
+    <ul class="task-comments">
+      <li *ngFor="let comment of taskCommentsList | paginate: { itemsPerPage: 4, currentPage: p }">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <h5>
+          <span>
+
+          </span>
+              <label>
+                {{ comment.user.fullName }}
+              </label>
+            </h5>
+            <p>
+              {{ comment.comment }}
+            </p>
+          </div>
+          <!--<div class="col-md-3 col-sm-3">
+            <div class="taskcomments-action-section">
+              <a class="btn-round">
+                <i class="fa fa-user-plus"></i>
+              </a>
+              <a class="btn-round">
+                <i class="fa fa-paperclip"></i>
+              </a>
+              <a class="btn-round">
+                <i class="fa fa-ellipsis-h"></i>
+              </a>
+            </div>
+          </div>-->
+        </div>
+      </li>
+    </ul>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+  </div>
+</div>

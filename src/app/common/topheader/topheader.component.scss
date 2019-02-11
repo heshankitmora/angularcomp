@@ -1,0 +1,87 @@
+@import "../../../styles";
+
+.col-tasks-line{
+
+  -webkit-box-shadow: -3px 8px 9px -5px rgba($border-color,0.27);
+  -moz-box-shadow: -3px 8px 9px -5px rgba($border-color,0.27);
+  box-shadow: -3px 8px 9px -5px rgba($border-color,0.27);
+
+  .main-title{
+    padding-left: $standard-padding;
+  }
+
+  .row{
+    >div{
+      padding-top:0;
+      padding-bottom: 0;
+    }
+  }
+
+  .col-profile-buttons{
+    >div{
+      display: flex;
+      align-items: center;
+      &.row-profile{
+        >div{
+          width: auto;
+        }
+      }
+    }
+    div{
+      padding-top:0;
+      padding-bottom: 0;
+
+      .btn{
+        width: 100%;
+      }
+
+      .btn-template{
+        background: $light-blue;
+      }
+
+    }
+    .profile-wrapper{
+      display: table;
+      width: 100%;
+      border-left: 1px solid $border-color;
+      padding-left: $standard-padding;
+      box-sizing: border-box;
+
+      p{
+        display: table-cell;
+        vertical-align: middle;
+        padding-right: 5px;
+        span{
+          display: block;
+          text-align: right;
+          color:$text-grey;
+          &.user-name{
+            color:$black;
+            font-size: 15px;
+          }
+        }
+      }
+      img{
+        vertical-align: middle;
+        display: table-cell;
+        width: 60px;
+      }
+    }
+  }
+}
+
+.row-header-line{
+  >div{
+    height: 80px;
+  }
+}
+
+app-addtask{
+  width: 100%;
+  display: block;
+
+  a.btn-tr{
+    width: 100%;
+    display: block;
+  }
+}

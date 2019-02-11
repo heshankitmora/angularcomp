@@ -1,0 +1,37 @@
+
+<div class="attachment-wrapper">
+  <div *ngIf="taskAttachmentsList.length > 0; else empty_content_attachments" class="sub-tasks-list">
+    <ul>
+      <li *ngFor="let attachment of taskAttachmentsList | paginate: { itemsPerPage: 3, currentPage: q }">
+        <h3>
+          <i class="fa fa-dot-circle-o"></i>
+          {{ attachment.name }}
+        </h3>
+        <p>
+          <b>
+            Type
+          </b>
+          {{ attachment.type }}
+        </p>
+        <p>
+          <b>
+            Attachment ID:
+          </b>
+          {{ attachment.fileId }}
+        </p>
+        <p>
+          <b>
+            Attchment Version:
+          </b>
+          {{ attachment.version }}
+        </p>
+      </li>
+    </ul>
+    <pagination-controls (pageChange)="q = $event"></pagination-controls>
+  </div>
+  <ng-template #empty_content_attachments>
+    <div class="not-available">
+      <p>No Sub Task Available</p>
+    </div>
+  </ng-template>
+</div>

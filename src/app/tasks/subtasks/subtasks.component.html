@@ -1,0 +1,37 @@
+
+<div class="sub-tasks-wrapper">
+  <div *ngIf="subTasksArray.length > 0; else empty_content_sub" class="sub-tasks-list">
+    <ul>
+      <li *ngFor="let subTask of subTasksArray | paginate: { itemsPerPage: 3, currentPage: q }">
+        <h3>
+          <i class="fa fa-dot-circle-o"></i>
+          {{ subTask.title }}
+        </h3>
+        <p>
+          <b>
+            Due Date:
+          </b>
+          {{ subTask.due }}
+        </p>
+        <p>
+          <b>
+            Assigned User:
+          </b>
+          {{ subTask.assignee | assgneeNameFull: allUsers }}
+        </p>
+        <p>
+          <b>
+            Status:
+          </b>
+          {{ subTask.status }}
+        </p>
+      </li>
+    </ul>
+    <pagination-controls (pageChange)="q = $event"></pagination-controls>
+  </div>
+  <ng-template #empty_content_sub>
+    <div class="not-available">
+      <p>No Sub Task Available</p>
+    </div>
+  </ng-template>
+</div>

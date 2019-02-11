@@ -1,0 +1,79 @@
+@import "../../../styles";
+
+.left-menu-ul{
+  list-style-type: none;
+  padding-left:0;
+
+  >li{
+    width: 100%;
+    position: relative;
+    padding: ($standard-padding * 2) $standard-padding;
+    padding-left: $standard-padding * 5;
+    >a{
+      i{
+        padding-right: $standard-padding;
+      }
+      color:$disable-link;
+      font-size: $standard-font-size * 1.5;
+      text-decoration: none;
+    }
+
+    &:hover{
+      background: $mid-blue-high;
+      cursor: pointer;
+      a{
+        color: $white;
+      }
+    }
+
+    &.empty{
+      cursor: inherit;
+      background: transparent;
+      &:hover{
+        a{
+          color:$disable-link;
+        }
+      }
+      a{
+        font-style: italic;
+        font-size: $standard-font-size;
+      }
+    }
+
+    &:first-child{
+      margin-top: $standard-padding * 3;
+    }
+
+    &.main-li{
+      background: $mid-blue-high;
+      margin-left: -$standard-padding;
+      width: calc(100% + (20px));
+      margin-top: $standard-padding * 5;
+      cursor: inherit;
+
+      &:hover{
+        a{
+          color:$disable-link;
+        }
+      }
+
+    }
+
+    &.active{
+      a{
+        color: $white;
+        position: relative;
+        &:before{
+          position: absolute;
+          left:-($standard-padding * 6);
+          height: 100%;
+          width: 3px;
+          background: $white;
+          content: '';
+          top:0;
+        }
+      }
+
+    }
+  }
+}

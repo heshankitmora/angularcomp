@@ -1,0 +1,10 @@
+<ul *ngIf="projectLength > 0; else empty_projects"  class="ul-projects">
+  <li *ngFor="let project of projectData">
+    <a>{{ project.title }}</a>
+  </li>
+</ul>
+<ng-template #empty_projects>
+  <div class="not-available">
+    <a>You have no project yet</a>
+  </div>
+</ng-template>
